@@ -4,7 +4,7 @@ export const storage = defineStorage({
     name: 'myProjectFiles',
     access: (allow) => ({
       // highlight-next-line
-      'some/path/*': [
+      'first-folder/*': [
         allow.guest.to(["read"])
       ],
       // highlight-next-line

@@ -1,7 +1,25 @@
+import sample from "/images/sample1.png";
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import { uploadData } from 'aws-amplify/storage';
 import './App.css'
+import { Amplify } from 'aws-amplify';
+import config from '../amplifyconfiguration.json';
+
+Amplify.configure(config);
+
+
+try {
+  const result = await uploadData({
+    path: "some/path/sample1.png", 
+    // Alternatively, path: ({identityId}) => `album/{identityId}/1.jpg`
+    data: sample,
+  }).result;
+  console.log('Succeeded: ', result);
+} catch (error) {
+  console.log('Error : ', error);
+}
 
 function App() {
   const [count, setCount] = useState(0)
@@ -31,5 +49,7 @@ function App() {
     </>
   )
 }
+
+
 
 export default App
