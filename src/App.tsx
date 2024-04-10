@@ -12,7 +12,7 @@ Amplify.configure(config);
 
 try {
   const result = await uploadData({
-    path: "some/path/sample1.png", 
+    path: "first-folder/sample1.png", 
     // Alternatively, path: ({identityId}) => `album/{identityId}/1.jpg`
     data: sample,
   }).result;

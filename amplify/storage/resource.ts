@@ -5,7 +5,7 @@ export const storage = defineStorage({
     access: (allow) => ({
       // highlight-next-line
       'first-folder/*': [
-        allow.guest.to(["read"])
+        allow.authenticated.to(["read", "write"])
       ],
       // highlight-next-line
       'another/path/*': [
