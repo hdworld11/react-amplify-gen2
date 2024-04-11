@@ -10,16 +10,7 @@ import config from '../amplifyconfiguration.json';
 Amplify.configure(config);
 
 
-try {
-  const result = await uploadData({
-    path: "first-folder/sample1.png", 
-    // Alternatively, path: ({identityId}) => `album/{identityId}/1.jpg`
-    data: sample,
-  }).result;
-  console.log('Succeeded: ', result);
-} catch (error) {
-  console.log('Error : ', error);
-}
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -36,8 +27,11 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+        <button onClick={uploadFile}>
+          Upload file
+        </button>
+        <button onClick={downloadFile}>
+          Download file
         </button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
@@ -50,6 +44,21 @@ function App() {
   )
 }
 
+async function uploadFile(){
+  try {
+    const result = await uploadData({
+      path: "first-folder/sample1.png", 
+      // Alternatively, path: ({identityId}) => `album/{identityId}/1.jpg`
+      data: sample,
+    }).result;
+    console.log('Succeeded: ', result);
+  } catch (error) {
+    console.log('Error : ', error);
+  }
+}
 
+async function downloadFile(){
+
+}
 
 export default App
