@@ -1,5 +1,4 @@
 import sample from "/images/sample1.png";
-import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import { uploadData } from 'aws-amplify/storage';
@@ -13,7 +12,6 @@ Amplify.configure(config);
 
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
@@ -29,9 +27,6 @@ function App() {
       <div className="card">
         <button onClick={uploadFile}>
           Upload file
-        </button>
-        <button onClick={downloadFile}>
-          Download file
         </button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
@@ -55,10 +50,6 @@ async function uploadFile(){
   } catch (error) {
     console.log('Error : ', error);
   }
-}
-
-async function downloadFile(){
-
 }
 
 export default App
